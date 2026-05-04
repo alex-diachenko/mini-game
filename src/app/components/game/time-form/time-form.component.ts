@@ -5,11 +5,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { NgStyle, NgClass } from '@angular/common';
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-time-form',
-  imports: [MatFormFieldModule, MatInputModule, FormsModule, FormField, MatButtonModule, NgStyle, NgClass],
+  imports: [MatFormFieldModule, MatInputModule, FormsModule, FormField, MatButtonModule, NgStyle],
   templateUrl: './time-form.component.html',
   styleUrl: './time-form.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
