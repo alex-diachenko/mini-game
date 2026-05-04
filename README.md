@@ -4,7 +4,7 @@ An Angular-based interactive mini-game built as a technical assessment. Players 
 
 ## Live Demo
 
-> **Deployed application:** _[Add link here]_
+> **Deployed application:** https://alex-diachenko.github.io/mini-game/
 
 ---
 
