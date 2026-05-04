@@ -1,0 +1,22 @@
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  width: min(calc(100vh - 250px), 100%);
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 5px;
+}
+
+app-game-item {
+  width: 100%;
+  aspect-ratio: 1;
+  min-width: 0;
+  min-height: 0;
+}

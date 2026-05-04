@@ -1,0 +1,14 @@
+<div class="grid">
+  @for (column of grid(); track $index; let i = $index) {
+    <div class="column">
+      @for (cell of column; track cell.id; let j = $index) {
+        <app-game-item
+          [isPlayerScore]="cell.isPlayerScore"
+          [isComputerScore]="cell.isComputerScore"
+          [isActive]="cell.isActive"
+          (mousedown)="handleCellClick(i, j)"
+        ></app-game-item>
+      }
+    </div>
+  }
+</div>

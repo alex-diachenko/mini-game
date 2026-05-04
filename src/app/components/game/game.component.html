@@ -1,0 +1,17 @@
+<div class="container">
+  <app-time-form
+    (emitStartGame)="startGame($event)"
+    (emitStopGame)="stopGame()"
+    [isGameStarted]="isGameStarted()"
+  ></app-time-form>
+  
+  <app-game-score
+    [score]="score()"
+  ></app-game-score>
+  
+  <app-game-grid
+    [isPlaying]="isGameStarted()"
+    [grid]="grid()"
+    (emitClickData)="handleCellClick($event.rowIndex, $event.colIndex)"
+  ></app-game-grid>
+</div>

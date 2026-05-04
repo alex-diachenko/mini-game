@@ -1,0 +1,25 @@
+<form class="game-controls">
+  <mat-form-field>
+    <mat-label>Time:</mat-label>
+    <input
+      matInput
+      [formField]="timeForm.time"
+      type="number"
+      (input)="timeForm.time().markAsTouched()"
+    />
+
+    @if (timeForm.time().invalid()) {
+      <mat-error>{{ timeForm.time().errors()[0].message }}</mat-error>
+    }
+  </mat-form-field>
+
+  <button
+    matButton="filled"
+    [disabled]="timeForm.time().invalid()"
+    (click)="!isGameStarted() ? emitStartGameEvent() : emitStopGameEvent()"
+    [ngStyle]="isGameStarted() ? { 'background-color': '#ba1a1a' } : {}"
+  >
+
+    {{ !isGameStarted() ? 'Start' : 'Stop' }}
+  </button>
+</form>

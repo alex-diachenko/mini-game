@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>
+  {{ data.computer > data.player ? 'Computer wins!' : 'Player wins!' }}
+</h2>
+<mat-dialog-content>
+  <app-game-score [score]="data"></app-game-score>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton (click)="closeDialog()">Close</button>
+</mat-dialog-actions>

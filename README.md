@@ -1,59 +1,118 @@
-# MiniGame
+# Interactive Mini-Game
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.5.
+An Angular-based interactive mini-game built as a technical assessment. Players compete against the computer on a 10×10 grid by clicking highlighted cells before a configurable timer expires.
 
-## Development server
+## Live Demo
 
-To start a local development server, run:
+> **Deployed application:** _[Add link here]_
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Task Description
 
-## Code scaffolding
+The goal was to implement an interactive mini-game with the following requirements:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **10×10 grid** of blue squares
+- **Start button** and an **input field** for N (reaction time in milliseconds)
+- **Score display** showing Player vs Computer points in real time
+- A random cell turns **yellow** — the player has N ms to click it
+- Clicking in time → cell turns **green**, player scores a point
+- Missing the timer → cell turns **red**, computer scores a point
+- **First to 10 points wins** — a custom modal displays the final result
+- No standard browser alerts; fully custom UI
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Features
 
-```bash
-ng generate --help
-```
+- Reactive game loop driven by RxJS
+- Configurable reaction time (N ms) via form input
+- Persistent color state for each cell (green / red)
+- Custom Angular Material modal for game-over results
+- Responsive layout with CSS Grid
+- Full input validation (only positive integers accepted)
 
-## Building
+---
 
-To build the project run:
+## Unit Tests
 
-```bash
-ng build
-```
+Unit tests cover the core game logic and were written with **Vitest**:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Run tests with:
 
 ```bash
-ng e2e
+npm test
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## Tech Stack
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+| Layer | Technology |
+|---|---|
+| Framework | Angular 21 |
+| UI Components | Angular Material 21 |
+| Reactive layer | RxJS 7 |
+| Styling | CSS3, Angular Material theming |
+| Testing | Vitest |
+| Language | TypeScript 5.9 |
+
+---
+
+## Project Structure
+
+```
+src/app/
+├── components/
+│   ├── game/                  # Root game orchestrator
+│   │   ├── game-grid/         # 10×10 cell grid
+│   │   ├── game-item/         # Individual cell
+│   │   └── time-form/         # N (ms) input form
+│   └── shared/
+│       ├── components/
+│       │   └── game-score/    # Score display
+│       └── modals/
+│           └── score-modal/   # Game-over modal
+├── models/                    # cell, score, time interfaces
+└── services/
+    └── grid.service.ts        # Core game logic
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js ≥ 18
+- npm ≥ 11 (`npm install -g npm@latest`)
+
+### Installation
+
+```bash
+git clone <repository-url>
+cd mini-game
+npm install
+```
+
+### Running locally
+
+```bash
+npm start
+```
+
+Navigate to `http://localhost:4200`.
+
+### Building for production
+
+```bash
+npm run build
+```
+
+Output is placed in `dist/mini-game/`.
+
+### Running tests
+
+```bash
+npm test
+```
